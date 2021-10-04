@@ -1,22 +1,16 @@
 class Machine extends React.Component {
 	render() {
-		const sym1 = this.props.symbol1;
-		const sym2 = this.props.symbol2;
-		const sym3 = this.props.symbol3;
+		const { s1, s2, s3 } = this.props;
+		const style = { fontSize: "50px", backgroundColor: "purple" };
 
-		let message;
-		if (sym1 === sym2 && sym2 === sym3) {
-			message = <p> You Wins</p>;
-		} else {
-			message = <p>You loses!</p>;
-		}
+		let message = s1 === s2 && s2 === s3;
 
 		return (
 			<div>
-				<div>
-					{sym1} {sym2} {sym3}
+				<div style={style}>
+					{s1} {s2} {s3}
 				</div>
-				<div>{message}</div>
+				<div>{message ? "You Win" : "You lose!"}</div>
 			</div>
 		);
 	}
